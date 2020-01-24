@@ -1,14 +1,15 @@
-package fr.tboutale.api.entities;
+package fr.tboutale.api.dtos;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
-@Entity
-public class Candidate extends AbstractEntity {
-    @Column(length = 40, nullable = false)
+public class CandidateDto {
+    @NotEmpty
+    @Size(max = 100)
     private String email;
 
-    @Column(length = 40, nullable = false)
+    @NotEmpty
+    @Size(min = 8, max = 40)
     private String password;
 
     public String getEmail() {
